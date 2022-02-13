@@ -1,0 +1,2 @@
+A hash: 100
+C hash: 100
