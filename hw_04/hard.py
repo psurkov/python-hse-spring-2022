@@ -3,6 +3,7 @@ import time
 from datetime import datetime
 from multiprocessing import Queue
 import codecs
+from threading import Thread
 
 
 def a_func(main_to_a: Queue, a_to_b: Queue):
@@ -23,7 +24,14 @@ if __name__ == '__main__':
     b_to_main = Queue()
     multiprocessing.Process(target=a_func, args=(main_to_a, a_to_b), daemon=True).start()
     multiprocessing.Process(target=b_func, args=(a_to_b, b_to_main), daemon=True).start()
+
+    def output():
+        while True:
+            res = b_to_main.get()
+            print(res)
+            print("(output time=" + datetime.now().strftime("%H:%M:%S") + ")")
+    Thread(target=output).start()
     while True:
-        main_to_a.put(input(datetime.now().strftime("%H:%M:%S") + "> "))
-        res = b_to_main.get()
-        print(datetime.now().strftime("%H:%M:%S") + ">", res)
+        x = input()
+        print("(input time=" + datetime.now().strftime("%H:%M:%S") + ")")
+        main_to_a.put(x)

@@ -1,7 +1,12 @@
-15:33:15> instant response
-15:33:30> vafgnag erfcbafr
-15:33:30> it will wait for sleep
-15:33:35> vg jvyy jnvg sbe fyrrc
-15:33:35> it will wait for sleep 2
-15:33:40> vg jvyy jnvg sbe fyrrc 2
-15:33:40>
+instant response
+(input time=16:18:46)
+vafgnag erfcbafr
+(output time=16:18:46)
+400
+(input time=16:18:47)
+4560
+(input time=16:18:48)
+400
+(output time=16:18:51)
+4560
+(output time=16:18:56)
